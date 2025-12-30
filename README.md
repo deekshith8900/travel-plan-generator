@@ -1,2 +1,3 @@
 I have created a travel plan generator application in which it gives a day by day travel itineray from the user inputs such as destination, days, budget, travel style, interests, extra notes. It gives a trip summary with daily Morning/Afternoon/Evening, estimated daily budget, transport tips, packing checklist, and 3 safety tips.
 I used open ai for python packages in planner.py and i tried with open ai key in which my clg open ai account but it didn't worked and then i used google ai studio nd hugging face i was unable to do with those then i used openrouter api key. The model uses gpt-4o-mini for open ai keys
+python3 -m venv .venu source .venv/bin/activate pip install -r requirements.txt
