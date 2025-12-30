@@ -8,12 +8,23 @@ st.write("Fill in the trip details and get a day-by-day plan!")
 
 # Read API key from Streamlit secrets (works locally + on Streamlit Cloud)
 # Support either OPENAI_API_KEY or OPENROUTER_API_KEY (allows using OpenRouter keys)
-if "OPENAI_API_KEY" in st.secrets:
+
+def _is_placeholder(key: str) -> bool:
+    if not key:
+        return True
+    k = str(key).strip()
+    return k == "" or k.lower().startswith("your_") or "replace" in k.lower()
+
+api_key = None
+if "OPENAI_API_KEY" in st.secrets and not _is_placeholder(st.secrets.get("OPENAI_API_KEY")):
     api_key = st.secrets["OPENAI_API_KEY"]
-elif "OPENROUTER_API_KEY" in st.secrets:
+elif "OPENROUTER_API_KEY" in st.secrets and not _is_placeholder(st.secrets.get("OPENROUTER_API_KEY")):
     api_key = st.secrets["OPENROUTER_API_KEY"]
 else:
-    st.error("Missing OPENAI_API_KEY or OPENROUTER_API_KEY in Streamlit secrets.")
+    st.error(
+        "Missing or placeholder API key. Add a real `OPENAI_API_KEY` or `OPENROUTER_API_KEY` to your Streamlit secrets (/.streamlit/secrets.toml) or the Streamlit Cloud Secrets UI."
+    )
+    st.info("If you use OpenRouter, set `OPENROUTER_API_KEY` (starts with `sk-or-`).")
     st.stop()
 
 
