@@ -15,8 +15,8 @@ Table of Contents
 - Configuration (API key)
 - Usage
 - Project Structure
-- Contributing
-- License
+
+
 
 About
 -----
@@ -79,46 +79,4 @@ Project Structure
 - `readme.md` — This file
 - `.venv/` — optional virtual environment (not committed)
 
-Contributing
-------------
-Contributions welcome — open issues or PRs. Please include clear description and tests where applicable.
 
-License
--------
-This project is licensed under the MIT License.
-
----------------
-
-Prerequisites
--------------
-Before you start, make sure you have the following prerequisites:
-
-- Python 3
-- OpenCV (pip install opencv-python)
-- scikit-learn (pip install scikit-learn)
-
-Usage
------
-1. Clone the repository to your local machine.
-2. Prepare your dataset by organizing images of people with and without masks in the `dataset/` folder.
-3. Adjust the SVM model and parameters in `svm_mask_detection.py` as needed.
-4. Run `svm_mask_detection.py` using a Python interpreter to start face mask detection.
-
-SVM Model
----------
-The SVM model (in `svm_model.py`) is trained to classify whether a person is wearing a mask or not. You can generate this model after training your dataset.
-
-Project Structure
------------------
-The project structure is organized as follows:
-
-- `main.py`: The main application code.
-- `svm_mask_detection.py`: The SVM model code for face mask detection.
-- `svm_model.py`: The trained SVM model (to be generated after training).
-- `dataset/`: Organize your dataset of images here.
-- `images/`: Store images and GIFs for the README.
-- `.gitignore`: Specifies files and directories to be ignored by Git.
-
-Contributing
-------------
-Contributions are welcome! Please feel free to open issues or submit pull requests to help improve this project.
